@@ -4,7 +4,7 @@ app=Flask(__name__)
 
 @app.route('/')
 def ret():
-    receive=sqlite3.connect('D:/Pooja/VSCodes/templates/country.db')
+    receive=sqlite3.connect('../templates/country.db')
     receive=receive.execute("SELECT * FROM countryIndia")
     info=receive.fetchall()
     for det in info:
