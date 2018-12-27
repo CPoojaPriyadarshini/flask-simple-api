@@ -2,7 +2,7 @@ from flask import Flask, request
 from flask_restful import Resource,Api
 from sqlalchemy import create_engine
 
-db=create_engine('sqlite:///templates/country.db')
+db=create_engine('sqlite:///country.db')
 app=Flask(__name__)
 api=Api(app)
 
