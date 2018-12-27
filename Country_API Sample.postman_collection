@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "b754668a-eebb-4936-9b10-66776305b110",
+		"name": "API Sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Country_API_test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fcb4e87-6043-4e19-9539-f40fc917e729",
+						"exec": [
+							"tests['Response time is less than 1000ms'] = responseTime <1000",
+							"",
+							"pm.test('response is ok',function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							";",
+							"",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     // assert that the status code is 200",
+							"     pm.response.to.be.ok; // info, success, redirection, clientError,  serverError, are other variants",
+							"     // assert that the response has a valid JSON body",
+							"     pm.response.to.be.withBody;",
+							"     pm.expect(pm.response.to.be.json).not.equal(null); // this assertion also checks if a body  exists, so the above check is not needed",
+							"});",
+							"",
+							"pm.test('Data is correct',function() {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData)",
+							"    for (var i=0;i<jsonData.data.length;i++)",
+							"    {",
+							"    pm.expect(typeof(jsonData.data[i].S_No)).equal('number')",
+							"    pm.expect(jsonData.data[i].S_No).not.equal(null)",
+							"    pm.expect(typeof(jsonData.data[i].States)).equal('string')",
+							"    pm.expect(jsonData.data[i].States).not.equal(null)",
+							"    pm.expect(jsonData.data[i].States).not.equal(\"\")",
+							"    pm.expect(typeof(jsonData.data[i].Capital_City)).equal('string')",
+							"    pm.expect(jsonData.data[i].Capital_City).not.equal(null)",
+							"    pm.expect(jsonData.data[i].Capital_City).not.equal(\"\")",
+							"    pm.expect(typeof(jsonData.data[i].Popular_Cities)).equal('string')",
+							"    pm.expect(jsonData.data[i].Popular_Cities).not.equal(null)",
+							"    pm.expect(jsonData.data[i].Popular_Cities).not.equal(\"\")",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7a9899fe-e3c1-4415-97fd-1ee1ee42393e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1bfe589d-af4e-47e2-9b9d-2a56a0c318f1",
+				"type": "text/javascript",
+				"exec": [
+					"tests['Response time is less than 1000ms'] = responseTime <1000",
+					"",
+					"pm.test('response is ok',function(){",
+					"    pm.response.to.have.status(200)",
+					"})",
+					";",
+					"",
+					"pm.test(\"response must be valid and have a body\", function () {",
+					"     // assert that the status code is 200",
+					"     pm.response.to.be.ok; // info, success, redirection, clientError,  serverError, are other variants",
+					"     // assert that the response has a valid JSON body",
+					"     pm.response.to.be.withBody;",
+					"     pm.expect(pm.response.to.be.json).not.equal(null); // this assertion also checks if a body  exists, so the above check is not needed",
+					"});",
+					"",
+					"pm.test('Data is correct',function() {",
+					"    var jsonData = pm.response.json();",
+					"    console.log(jsonData)",
+					"    for (var i=0;i<jsonData.data.length;i++)",
+					"    {",
+					"    pm.expect(typeof(jsonData.data[i].S_No)).equal('number')",
+					"    pm.expect(jsonData.data[i].S_No).not.equal(null)",
+					"    pm.expect(typeof(jsonData.data[i].States)).equal('string')",
+					"    pm.expect(jsonData.data[i].States).not.equal(null)",
+					"    pm.expect(jsonData.data[i].States).not.equal(\"\")",
+					"    pm.expect(typeof(jsonData.data[i].Capital_City)).equal('string')",
+					"    pm.expect(jsonData.data[i].Capital_City).not.equal(null)",
+					"    pm.expect(jsonData.data[i].Capital_City).not.equal(\"\")",
+					"    pm.expect(typeof(jsonData.data[i].Popular_Cities)).equal('string')",
+					"    pm.expect(jsonData.data[i].Popular_Cities).not.equal(null)",
+					"    pm.expect(jsonData.data[i].Popular_Cities).not.equal(\"\")",
+					"    }",
+					"});"
+				]
+			}
+		}
+	]
+}
